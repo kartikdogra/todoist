@@ -15,7 +15,7 @@ const getSpecificTask = async (argv) => {
       console.table(tasks);
       
     } catch (error) {
-      console.log(chalk.red("error occurred"));
+      console.log(chalk.red(error));
     }
   };
   module.exports=getSpecificTask;

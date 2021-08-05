@@ -16,7 +16,7 @@ const closeSpecificTask = async (argv) => {
       console.log(chalk.blue("task closed succesfully"));
       
     } catch (error) {
-      console.log(chalk.red("error occurred"));
+      console.log(chalk.red(error));
     }
   
   

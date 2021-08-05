@@ -4,9 +4,11 @@ const fetch = require("node-fetch");
 require("dotenv").config();
 const TOKEN = process.env.TOKEN;
 
-const addtask = async (argv) => {
 
-    const URL = process.env.URL + `tasks`;
+
+const addProjectTask = async (argv) => {
+
+    const URL = "https://api.todoist.com/rest/v1/tasks";
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${TOKEN}`,
@@ -15,6 +17,8 @@ const addtask = async (argv) => {
       content: `${argv.title}`,
       description: `${argv.description}`,
       due_string: `${argv.time}`,
+      project_id:argv.project_id,
+
     };
     try {
       
@@ -27,11 +31,11 @@ const addtask = async (argv) => {
           return res.json();
         })
         .then((json) => {
-            console.log(chalk.blue("task created succesfully"));
+            console.log(chalk.blue(`task created succesfully inside project ${argv.project_id}`));
         });
     } catch (error) {
       console.log(chalk.red(error));
     }
   };
   
-  module.exports=addtask;
+  module.exports=addProjectTask;

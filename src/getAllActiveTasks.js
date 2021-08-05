@@ -19,7 +19,7 @@ const getAllActiveTasks = async () => {
       }).then((res) => res.json());
       console.table(tasks);
     } catch (error) {
-      console.log(chalk.red("error occurred"));
+      console.log(chalk.red(error));
     }
   };
   

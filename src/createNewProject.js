@@ -4,17 +4,15 @@ const fetch = require("node-fetch");
 require("dotenv").config();
 const TOKEN = process.env.TOKEN;
 
-const addtask = async (argv) => {
+const createProject = async (argv) => {
 
-    const URL = process.env.URL + `tasks`;
+    const URL = process.env.URL + `projects`;
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Bearer ${TOKEN}`,
     };
     const data = {
-      content: `${argv.title}`,
-      description: `${argv.description}`,
-      due_string: `${argv.time}`,
+      name: `${argv.name}`,
     };
     try {
       
@@ -27,11 +25,11 @@ const addtask = async (argv) => {
           return res.json();
         })
         .then((json) => {
-            console.log(chalk.blue("task created succesfully"));
+            console.log(chalk.blue("project created succesfully"));
         });
     } catch (error) {
       console.log(chalk.red(error));
     }
   };
   
-  module.exports=addtask;
+  module.exports=createProject;

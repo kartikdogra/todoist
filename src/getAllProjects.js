@@ -5,8 +5,8 @@ require("dotenv").config();
 const TOKEN = process.env.TOKEN;
 
 
-const getAllProjects = async () => {
-    const URL = process.env.URL + `projects`;
+const getAllProjects = async (argv) => {
+    let URL=argv.id==undefined?process.env.URL + `projects`:process.env.URL + `projects/${argv.id}`;
     try {
       
       const projects = await fetch(URL, {
@@ -16,7 +16,7 @@ const getAllProjects = async () => {
       }).then((res) => res.json());
       console.table(projects);
     } catch (error) {
-      console.log(chalk.red("error occurred"));
+      console.log(chalk.red(error));
     }
   };
 
