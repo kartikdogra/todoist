@@ -18,36 +18,3 @@ yargs
 .command({command:"task-close",describe:"close a specific task",builder: {id : {describe: 'task id',demandOption: true,type:'Number'}},handler:closeSpecificTask})
 .command({command:"task-delete",describe:"delete a specfic task",builder: {id : {describe: 'task id',demandOption: true,type:'Number'}},handler:deleteSpecificTask})
 .argv
-
-
-
-/*let command=yargs.argv._[0];
-   
-if(command===`ls`)
-{  
-   getAllProjects();
-}
-else if(command===`ls-active`)
-{
-   getAllActiveTasks();
-}
-else if(command===`ls-specific`)s
-{  
-   getSpecificTask(yargs.argv.id);
-}
-else if(command===`task-add`)
-{
-   addtask(yargs.argv);
-}
-else if(command===`task-close`)
-{
-   closeSpecificTask(yargs.argv);
-}
-else if(command===`task-delete`)
-{
-   deleteSpecificTask(yargs.argv);
-}
-else{
-  console.log(chalk.red("no command found"));
-}
-*/
